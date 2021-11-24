@@ -45,6 +45,16 @@ class MainSearch extends Component {
                             <Form.Control type="search" value={this.state.query} onChange={this.handleChange} placeholder="Search for job 🔍" />
                         </Form>
                     </Col>
+                    <Col xs={10} className='mx-auto'>
+                        <Row
+                            className="mx-0 mt-3 p-3"
+                            style={{ border: '1px solid #00000033', borderRadius: 4, backgroundColor: 'white' }}
+                        >
+                            <Col xs={2}>Add to fav</Col>
+                            <Col xs={4}>Company</Col>
+                            <Col xs={4}>Job</Col>
+                        </Row>
+                    </Col>
                     <Col xs={10} className='mx-auto mb-5'>
                         {
                             this.state.jobs.map(jobData => <Job key={uniqid()} data={jobData} />)
