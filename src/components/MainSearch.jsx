@@ -1,9 +1,10 @@
-import { Component } from 'react'
+import React from 'react'
 import { Container, Row, Col, Form } from 'react-bootstrap'
-import Job from './Job'
+import JobResult from './JobResult'
 import uniqid from 'uniqid'
+import { Link } from 'react-router-dom'
 
-class MainSearch extends Component {
+export default class MainSearch extends React.Component {
 
     state = {
         query: '',
@@ -38,7 +39,8 @@ class MainSearch extends Component {
             <Container>
                 <Row>
                     <Col xs={10} className='mx-auto my-3'>
-                        <h1>Jobs Search Engine</h1>
+                        <Link to="/"><h1  style={{textAlign: 'center', color: "rgb(40, 44, 52)" }}>Jobs Search Engine</h1></Link>
+                        <Link to="/favourites" className="btn btn-info" style={{float: 'right'}}>Favourites</Link>
                     </Col>
                     <Col xs={10} className='mx-auto'>
                         <Form onSubmit={this.handleSubmit}>
@@ -47,8 +49,8 @@ class MainSearch extends Component {
                     </Col>
                     <Col xs={10} className='mx-auto'>
                         <Row
-                            className="mx-0 mt-3 p-3"
-                            style={{ border: '1px solid #00000033', borderRadius: 4, backgroundColor: 'white' }}
+                            className="mx-0 mt-3 pr-3 pt-3 pb-3 pl-0"
+                            style={{ border: '1px solid #00000033', borderRadius: 4, backgroundColor: 'white', color: "rgb(40, 44, 52)" }}
                         >
                             <Col xs={2}>Add to fav</Col>
                             <Col xs={4}>Company</Col>
@@ -57,7 +59,7 @@ class MainSearch extends Component {
                     </Col>
                     <Col xs={10} className='mx-auto mb-5'>
                         {
-                            this.state.jobs.map(jobData => <Job key={uniqid()} data={jobData} />)
+                            this.state.jobs.map(jobData => <JobResult key={uniqid()} data={jobData} />)
                         }
                     </Col>
                 </Row>
@@ -65,5 +67,3 @@ class MainSearch extends Component {
         )
     }
 }
-
-export default MainSearch
