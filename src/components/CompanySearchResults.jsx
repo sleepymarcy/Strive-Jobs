@@ -27,7 +27,9 @@ const CompanySearchResults = () => {
         <Container>
             <Row>
                 <Col>
-                    {jobs.map(jobData => <Job key={uniqid()} data={jobData} />)}
+                    {jobs.map((jobData) => (
+                        <Job key={uniqid()} data={jobData} />
+                    ))}
                 </Col>
             </Row>
         </Container>
