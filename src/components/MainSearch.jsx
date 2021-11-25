@@ -39,7 +39,7 @@ export default class MainSearch extends React.Component {
             <Container>
                 <Row>
                     <Col xs={10} className='mx-auto my-3'>
-                        <Link to="/"><h1  style={{textAlign: 'center', color: "rgb(40, 44, 52)" }}>Jobs Search Engine</h1></Link>
+                        <Link to="/" style={{textAlign: 'center', color: "rgb(40, 44, 52)", textDecoration: 'none' }}><h1>Jobs Search Engine</h1></Link>
                         <Link to="/favourites" className="btn btn-info" style={{float: 'right'}}>Favourites</Link>
                     </Col>
                     <Col xs={10} className='mx-auto'>

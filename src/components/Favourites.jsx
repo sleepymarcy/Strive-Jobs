@@ -15,13 +15,13 @@ class Favourites extends React.Component {
             <Container>
                 <Row>
                     <Col xs={10} className='mx-auto my-3'>
-                        <Link to="/"><h1  style={{textAlign: 'center', color: "rgb(40, 44, 52)" }}>Jobs Search Engine</h1></Link>
+                        <Link to="/"><h1  style={{textAlign: 'center', color: "rgb(40, 44, 52)", textDecoration: 'none' }}>Jobs Search Engine</h1></Link>
                         <Link to="/favourites" className="btn btn-info" style={{float: 'right'}}>Favourites</Link>
                     </Col>
                     <Col xs={10} className='mx-auto my-3'>
                         <ListGroup>
                         {
-                            this.props.favourites.map(f => (
+                            this.props.favourites.elements.map((f) => (
                                 <ListGroupItem>
                                     <StarFill color="pink" onClick={() => this.props.removeFromFav(f)} />
                                     <span className="ml-5" >{ f }</span>

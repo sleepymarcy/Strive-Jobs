@@ -13,14 +13,19 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 
-function JobResult({ data, favourites, addToFavourites, removeFromFavourites }) {
+function JobResult({
+    data,
+    favourites,
+    addToFavourites,
+    removeFromFavourites,
+}) {
 
-    const isFav = favourites.includes(data.company_name)
+    const isFav = favourites.elements.includes(data.company_name)
     console.log(isFav, favourites)
     const toggleFavourite = () => {
-        isFav 
-            ? removeFromFavourites(data.company_name) 
-            : addToFavourites(data.company_name) 
+        isFav
+            ? removeFromFavourites(data.company_name)
+            : addToFavourites(data.company_name)
     }
 
     return (
@@ -28,7 +33,7 @@ function JobResult({ data, favourites, addToFavourites, removeFromFavourites }) 
             <Col xs={6} className="d-flex">
                 {
                     isFav
-                        ? <StarFill color="pink" size={16} className="me-4 my-auto mr-5 ml-2" onClick={toggleFavourite}/>
+                        ? <StarFill color="pink" size={16} className="me-4 my-auto mr-5 ml-2" onClick={toggleFavourite} />
                         : <Star color="pink" size={16} className="me-4 my-auto mr-5 ml-2" onClick={toggleFavourite} />
                 }
                 <Link to={`/${data.company_name}`} className="ml-5 pl-3">{data.company_name}</Link>
