@@ -1,21 +1,25 @@
-import { initialState } from "../store";
-import { ADD_TO_FAV, REMOVE_FROM_FAV } from '../actions/index'
+import { initialState } from "../store/index";
 
-const favouritesReducer = (state = initialState.favourites, action) => {
-  switch (action.type) {
-    case ADD_TO_FAV:
+export default function favouritesReducer(
+  state = initialState.favourites,
+  action
+) {
+  console.log(action, state);
+
+  const { type, payload } = action;
+
+  switch (type) {
+    case "ADD_TO_FAV":
       return {
         ...state,
-        elements: [...state.elements, action.payload],
+        elements: [...state.elements, payload],
       };
-    case REMOVE_FROM_FAV:
+    case "REMOVE_FROM_FAV":
       return {
         ...state,
-        elements: state.elements.filter((company) => company !== action.payload),
+        elements: state.elements.filter((company) => company !== payload),
       };
     default:
       return state;
   }
 }
-
-export default favouritesReducer;

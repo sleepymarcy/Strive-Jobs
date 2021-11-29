@@ -1,16 +1,17 @@
-import { initialState } from "../store";
-import { FETCH_JOBS } from '../actions/index'
+import { initialState } from "../store/index";
 
-const jobsReducer = (state = initialState.jobs, action) => {
-  switch (action.type) {
-    case FETCH_JOBS:
+export default function jobsReducer(state = initialState.jobs, action) {
+  console.log(action, state);
+
+  const { type, payload } = action;
+
+  switch (type) {
+    case "FETCH_JOBS":
       return {
         ...state,
-        elements: [...state.elements, action.payload],
+        elements: payload,
       };
     default:
       return state;
   }
 }
-
-export default jobsReducer;
