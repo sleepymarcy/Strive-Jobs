@@ -1,12 +1,11 @@
 import { initialState } from "../store";
+import { FETCH_JOBS } from '../actions/index'
 
-export default function jobsReducer(state = initialState.jobs, action) {
-  console.log(action, state);
-
+const jobsReducer = (state = initialState.jobs, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case "FETCH_JOBS":
+    case FETCH_JOBS:
       return {
         ...state,
         elements: payload,
@@ -15,3 +14,5 @@ export default function jobsReducer(state = initialState.jobs, action) {
       return state;
   }
 }
+
+export default jobsReducer;

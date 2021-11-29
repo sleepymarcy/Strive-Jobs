@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col, ListGroup, ListGroupItem} from 'react-bootstrap'
+import { Container, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap'
 import { StarFill } from 'react-bootstrap-icons'
 import { connect } from 'react-redux'
 import { removeFromFav } from '../actions'
@@ -15,20 +15,20 @@ class Favourites extends React.Component {
             <Container>
                 <Row>
                     <Col xs={10} className='mx-auto my-3'>
-                        <Link to="/"><h1  style={{textAlign: 'center', color: "rgb(40, 44, 52)", textDecoration: 'none' }}>Jobs Search Engine</h1></Link>
-                        <Link to="/favourites" className="btn btn-info" style={{float: 'right'}}>Favourites</Link>
+                        <Link to="/" style={{ textAlign: 'center', color: "rgb(40, 44, 52)", textDecoration: 'none' }}><h1>Jobs Search Engine</h1></Link>
+                        <Link to="/favourites" className="btn btn-info" style={{ float: 'right' }}>Favourites</Link>
                     </Col>
                     <Col xs={10} className='mx-auto my-3'>
                         <ListGroup>
-                        {
-                            this.props.favourites.elements.map((f) => (
-                                <ListGroupItem>
-                                    <StarFill color="pink" onClick={() => this.props.removeFromFav(f)} />
-                                    <span className="ml-5" >{ f }</span>
-                                </ListGroupItem>
-                            ))
-                            
-                        }
+                            {
+                                this.props.favourites.elements.map((f) => (
+                                    <ListGroupItem>
+                                        <StarFill color="pink" onClick={() => this.props.removeFromFav(f)} />
+                                        <span className="ml-5" >{f}</span>
+                                    </ListGroupItem>
+                                ))
+
+                            }
                         </ListGroup>
                     </Col>
                 </Row>

@@ -1,21 +1,26 @@
+export const REMOVE_FROM_FAV = 'REMOVE_FROM_FAV';
+export const FETCH_JOBS = 'FETCH_JOBS';
+export const ADD_TO_FAV = 'ADD_TO_FAV';
+
 export const addToFav = (company) => ({
-    type: "ADD_TO_FAV",
+    type: ADD_TO_FAV,
     payload: company,
 });
 
 export const removeFromFav = (company) => ({
-    type: "REMOVE_FROM_FAV",
+    type: REMOVE_FROM_FAV,
     payload: company,
 });
 
 export const fetchJobs = (url, query) => {
     return async (dispatch, getState) => {
+        console.log(getState().company.data.length)
         try {
-            let resp = await fetch(url + query + '&limit=20');
-            if (resp.ok) {
-                const { data } = await resp.json();
+            const response = await fetch(url + query + '&limit=20');
+            if (response.ok) {
+                const data = await response.json();
                 dispatch({
-                    type: "FETCH_JOBS",
+                    type: FETCH_JOBS,
                     payload: data,
                 });
             } else {
